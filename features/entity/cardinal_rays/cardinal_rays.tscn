@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bkg4w0tg7wafl"]
+
+[ext_resource type="Script" uid="uid://djomivnxql6ar" path="res://features/entity/cardinal_rays/cardinal_rays.gd" id="1_q57xt"]
+
+[node name="CardinalRays" type="Node2D" unique_id=1837386489]
+script = ExtResource("1_q57xt")
+
+[node name="RayUp" type="RayCast2D" parent="." unique_id=1390349163]
+target_position = Vector2(0, -1)
+hit_from_inside = true
+
+[node name="RayDown" type="RayCast2D" parent="." unique_id=214988753]
+target_position = Vector2(0, 1)
+hit_from_inside = true
+
+[node name="RayLeft" type="RayCast2D" parent="." unique_id=883371283]
+target_position = Vector2(-1, 0)
+hit_from_inside = true
+
+[node name="RayRight" type="RayCast2D" parent="." unique_id=1175367042]
+target_position = Vector2(1, 0)
+hit_from_inside = true

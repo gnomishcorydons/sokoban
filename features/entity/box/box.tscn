@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dmjityrgxcifv"]
+
+[ext_resource type="Script" uid="uid://u6bi6b47rw3o" path="res://features/entity/box/box.gd" id="1_im7il"]
+[ext_resource type="Texture2D" uid="uid://cv5ku75ssceih" path="res://assets/images/box.png" id="2_gj5db"]
+[ext_resource type="PackedScene" uid="uid://bkg4w0tg7wafl" path="res://features/entity/cardinal_rays/cardinal_rays.tscn" id="3_l3hxd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_30iro"]
+size = Vector2(64, 64)
+
+[node name="Box" type="CharacterBody2D" unique_id=278958057 node_paths=PackedStringArray("sprite", "rays")]
+script = ExtResource("1_im7il")
+sprite = NodePath("Sprite2D")
+rays = NodePath("CardinalRays")
+metadata/_custom_type_script = "uid://cni8djju5fg3q"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=680502960]
+texture = ExtResource("2_gj5db")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1000475862]
+shape = SubResource("RectangleShape2D_30iro")
+
+[node name="CardinalRays" parent="." unique_id=1837386489 instance=ExtResource("3_l3hxd")]

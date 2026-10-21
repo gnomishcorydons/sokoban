@@ -1,7 +1,14 @@
 [gd_scene format=3 uid="uid://c04hjg8b0o18x"]
 
 [ext_resource type="Script" uid="uid://wtrp5kdl3ghd" path="res://addons/context/context.gd" id="1_68t5b"]
+[ext_resource type="PackedScene" uid="uid://dcq47felmt2ny" path="res://features/entity/player/player.tscn" id="2_s10nb"]
+[ext_resource type="PackedScene" uid="uid://dmjityrgxcifv" path="res://features/entity/box/box.tscn" id="3_fitu1"]
 
-[node name="RootContext" type="Node" unique_id=1670317113]
+[node name="RootContext" type="Node" unique_id=840183854]
 script = ExtResource("1_68t5b")
 metadata/_custom_type_script = "uid://wtrp5kdl3ghd"
+
+[node name="Player" parent="." unique_id=1750199911 instance=ExtResource("2_s10nb")]
+
+[node name="Box" parent="." unique_id=278958057 instance=ExtResource("3_fitu1")]
+position = Vector2(256, 128)
