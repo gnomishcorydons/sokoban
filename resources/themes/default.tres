@@ -1,0 +1,11 @@
+[gd_resource type="Theme" format=3 uid="uid://fxrdvtipyyck"]
+
+[ext_resource type="FontVariation" uid="uid://xohps6vdckum" path="res://resources/font/texgyreheros.tres" id="1_sn1o5"]
+
+[resource]
+default_font = ExtResource("1_sn1o5")
+default_font_size = 24
+MarginContainer/constants/margin_bottom = 16
+MarginContainer/constants/margin_left = 16
+MarginContainer/constants/margin_right = 16
+MarginContainer/constants/margin_top = 16

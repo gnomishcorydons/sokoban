@@ -1,0 +1,6 @@
+[gd_resource type="FontVariation" format=3 uid="uid://xohps6vdckum"]
+
+[ext_resource type="FontFile" uid="uid://bpqfbgciuclba" path="res://assets/fonts/texgyreheros/texgyreheros-regular.otf" id="1_p1xt8"]
+
+[resource]
+base_font = ExtResource("1_p1xt8")

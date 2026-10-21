@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://d4k2jl6muoqvl"]
+
+[ext_resource type="Script" uid="uid://q7nf3mtg36pj" path="res://features/level_select_context/level_select_context.gd" id="1_xufrq"]
+
+[node name="LevelSelectContext" type="Node" unique_id=1411027043]
+script = ExtResource("1_xufrq")
+metadata/_custom_type_script = "uid://wtrp5kdl3ghd"
+
+[node name="Control" type="Control" parent="." unique_id=1812653688]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=229311745]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer" unique_id=1357415697]
+layout_mode = 2
+
+[node name="LevelPackContainer" type="PanelContainer" parent="Control/MarginContainer/HBoxContainer" unique_id=2029449031]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/HBoxContainer/LevelPackContainer" unique_id=1577259296]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/HBoxContainer/LevelPackContainer/MarginContainer" unique_id=1420357703]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer/HBoxContainer/LevelPackContainer/MarginContainer/VBoxContainer" unique_id=340835366]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Level Packs"
+
+[node name="HSeparator" type="HSeparator" parent="Control/MarginContainer/HBoxContainer/LevelPackContainer/MarginContainer/VBoxContainer" unique_id=1558005529]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/MarginContainer/HBoxContainer/LevelPackContainer/MarginContainer/VBoxContainer" unique_id=420951733]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/HBoxContainer/LevelPackContainer/MarginContainer/VBoxContainer/PanelContainer" unique_id=650808362]
+layout_mode = 2
+
+[node name="LevelPackButtonContainer" type="VBoxContainer" parent="Control/MarginContainer/HBoxContainer/LevelPackContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer" unique_id=99840979]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ReloadLevelPacksButton" type="Button" parent="Control/MarginContainer/HBoxContainer/LevelPackContainer/MarginContainer/VBoxContainer" unique_id=471334749]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Reload"
+
+[node name="LevelsContainer" type="PanelContainer" parent="Control/MarginContainer/HBoxContainer" unique_id=1631440597]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/HBoxContainer/LevelsContainer" unique_id=722141871]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/HBoxContainer/LevelsContainer/MarginContainer" unique_id=39247753]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer/HBoxContainer/LevelsContainer/MarginContainer/VBoxContainer" unique_id=1476968149]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Levels"
+
+[node name="HSeparator" type="HSeparator" parent="Control/MarginContainer/HBoxContainer/LevelsContainer/MarginContainer/VBoxContainer" unique_id=876169806]
+layout_mode = 2
+
+[node name="LevelsButtonsContainer" type="VBoxContainer" parent="Control/MarginContainer/HBoxContainer/LevelsContainer/MarginContainer/VBoxContainer" unique_id=1338179589]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="LevelPackInfoContainer" type="PanelContainer" parent="Control/MarginContainer/HBoxContainer" unique_id=676734442]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/HBoxContainer/LevelPackInfoContainer" unique_id=2010958683]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/HBoxContainer/LevelPackInfoContainer/MarginContainer" unique_id=386353220]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="Control/MarginContainer/HBoxContainer/LevelPackInfoContainer/MarginContainer/VBoxContainer" unique_id=186781682]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Title"
+
+[node name="EmailLabel" type="Label" parent="Control/MarginContainer/HBoxContainer/LevelPackInfoContainer/MarginContainer/VBoxContainer" unique_id=697082454]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Email"
+
+[node name="CopyrightLabel" type="Label" parent="Control/MarginContainer/HBoxContainer/LevelPackInfoContainer/MarginContainer/VBoxContainer" unique_id=989166998]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Copyright"
+
+[node name="MaxSizeLabel" type="Label" parent="Control/MarginContainer/HBoxContainer/LevelPackInfoContainer/MarginContainer/VBoxContainer" unique_id=1163540432]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Max Size"
+
+[node name="DescriptionLabel" type="Label" parent="Control/MarginContainer/HBoxContainer/LevelPackInfoContainer/MarginContainer/VBoxContainer" unique_id=1196383945]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Description"
+
+[node name="PlayButton" type="Button" parent="Control/MarginContainer/HBoxContainer/LevelPackInfoContainer/MarginContainer/VBoxContainer" unique_id=325761301]
+layout_mode = 2
+text = "Play"

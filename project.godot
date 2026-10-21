@@ -26,7 +26,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/console/plugin.cfg", "res://addons/context/plugin.cfg", "res://addons/log/plugin.cfg", "res://addons/reload_current_scene/plugin.cfg", "res://addons/script-ide/plugin.cfg", "res://addons/state_machine/plugin.cfg")
+enabled=PackedStringArray("res://addons/better_xml/plugin.cfg", "res://addons/console/plugin.cfg", "res://addons/context/plugin.cfg", "res://addons/log/plugin.cfg", "res://addons/reload_current_scene/plugin.cfg", "res://addons/script-ide/plugin.cfg", "res://addons/state_machine/plugin.cfg")
 
 [file_customization]
 
@@ -34,8 +34,12 @@ folder_colors={
 "res://addons/": "gray",
 "res://assets/": "red",
 "res://features/": "blue",
-"res://level_packs/": "purple"
+"res://resources/": "purple"
 }
+
+[gui]
+
+theme/custom="uid://fxrdvtipyyck"
 
 [input]
 

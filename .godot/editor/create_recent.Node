@@ -1,5 +1,13 @@
+Button
+HSeparator
+MarginContainer
+PanelContainer
+Label
+VBoxContainer
+HBoxContainer
+Control
+Context
 CollisionShape2D
 Sprite2D
 Entity
 RayCast2D
-Context
