@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c04hjg8b0o18x"]
+
+[ext_resource type="Script" uid="uid://wtrp5kdl3ghd" path="res://addons/context/context.gd" id="1_68t5b"]
+
+[node name="RootContext" type="Node" unique_id=1670317113]
+script = ExtResource("1_68t5b")
+metadata/_custom_type_script = "uid://wtrp5kdl3ghd"
