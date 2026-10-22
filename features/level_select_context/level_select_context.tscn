@@ -43,15 +43,13 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "Level Packs"
 
-[node name="PanelContainer" type="PanelContainer" parent="Control/MarginContainer/HBoxContainer/LevelPackContainer/MarginContainer/VBoxContainer" unique_id=420951733]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/HBoxContainer/LevelPackContainer/MarginContainer/VBoxContainer/PanelContainer" unique_id=650808362]
-layout_mode = 2
-
-[node name="LevelPackButtonContainer" type="VBoxContainer" parent="Control/MarginContainer/HBoxContainer/LevelPackContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer" unique_id=99840979]
+[node name="LevelPackList" type="ItemList" parent="Control/MarginContainer/HBoxContainer/LevelPackContainer/MarginContainer/VBoxContainer" unique_id=425690493]
 unique_name_in_owner = true
 layout_mode = 2
+auto_width = true
+auto_height = true
+item_count = 1
+item_0/text = "ass"
 
 [node name="ReloadLevelPacksButton" type="Button" parent="Control/MarginContainer/HBoxContainer/LevelPackContainer/MarginContainer/VBoxContainer" unique_id=471334749]
 unique_name_in_owner = true
@@ -107,12 +105,15 @@ autowrap_mode = 3
 [node name="HSeparator" type="HSeparator" parent="Control/MarginContainer/HBoxContainer/LevelsContainer/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=876169806]
 layout_mode = 2
 
-[node name="LevelIDlabel" type="Label" parent="Control/MarginContainer/HBoxContainer/LevelsContainer/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=71057665]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/MarginContainer/HBoxContainer/LevelsContainer/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=641885380]
+layout_mode = 2
+
+[node name="LevelIDlabel" type="Label" parent="Control/MarginContainer/HBoxContainer/LevelsContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer2" unique_id=71057665]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Level ID"
 
-[node name="LevelSizeLabel" type="Label" parent="Control/MarginContainer/HBoxContainer/LevelsContainer/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=1537553440]
+[node name="LevelSizeLabel" type="Label" parent="Control/MarginContainer/HBoxContainer/LevelsContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer2" unique_id=1537553440]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Level Size"
@@ -133,12 +134,8 @@ layout_mode = 2
 size_flags_horizontal = 0
 text = "Levels"
 
-[node name="PanelContainer" type="PanelContainer" parent="Control/MarginContainer/HBoxContainer/LevelsContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1664027478]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/HBoxContainer/LevelsContainer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer" unique_id=1357641450]
-layout_mode = 2
-
-[node name="LevelButtonsContainer" type="VBoxContainer" parent="Control/MarginContainer/HBoxContainer/LevelsContainer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer" unique_id=1338179589]
+[node name="LevelList" type="ItemList" parent="Control/MarginContainer/HBoxContainer/LevelsContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1971201346]
 unique_name_in_owner = true
 layout_mode = 2
+auto_width = true
+auto_height = true
