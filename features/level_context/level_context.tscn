@@ -40,8 +40,17 @@ sources/4 = SubResource("TileSetAtlasSource_37sck")
 script = ExtResource("1_i1m60")
 metadata/_custom_type_script = "uid://wtrp5kdl3ghd"
 
-[node name="Parallax2D" type="Parallax2D" parent="." unique_id=626186867]
+[node name="Node2D" type="Node2D" parent="." unique_id=253516346]
 
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=603586180]
+[node name="Parallax2D" type="Parallax2D" parent="Node2D" unique_id=626186867]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Node2D" unique_id=603586180]
 unique_name_in_owner = true
 tile_set = SubResource("TileSet_30iro")
+
+[node name="Camera2D" type="Camera2D" parent="Node2D" unique_id=272606939]
+unique_name_in_owner = true
+limit_enabled = false
+
+[node name="EntitiesContainer" type="Node2D" parent="Node2D" unique_id=989511386]
+unique_name_in_owner = true

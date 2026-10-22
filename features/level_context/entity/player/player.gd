@@ -1,4 +1,7 @@
+class_name Player
 extends Entity
+
+const PACKED_SCENE: PackedScene = preload("uid://dcq47felmt2ny")
 
 func _unhandled_input(_event: InputEvent) -> void:
 	if not ready_to_move(): return

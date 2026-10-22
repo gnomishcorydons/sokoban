@@ -1,11 +1,11 @@
 extends Node
 
 ## Print
-func pr(string: String):
-	print(string)
-	Console.print_line(string)
+func pr(text: Variant):
+	print(text)
+	Console.print_line(text)
 
 ## Error
-func er(string: String):
-	push_error(string)
-	Console.print_error(string)
+func er(text: Variant):
+	push_error(text)
+	Console.print_error(text)

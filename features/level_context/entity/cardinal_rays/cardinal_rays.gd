@@ -8,10 +8,10 @@ extends Node2D
 @onready var ray_right: RayCast2D = get_node("RayRight")
 
 func set_tile_size(tile_size: int) -> void:
-	ray_up.position = Vector2(0.0,-tile_size/2.0)
-	ray_down.position = Vector2(0.0,tile_size/2.0)
-	ray_left.position = Vector2(-tile_size/2.0,0.0)
-	ray_right.position = Vector2(tile_size/2.0,0.0)
+	ray_up.position = Vector2(0.0,-tile_size/2.0 - 1)
+	ray_down.position = Vector2(0.0,tile_size/2.0 + 1)
+	ray_left.position = Vector2(-tile_size/2.0 - 1,0.0)
+	ray_right.position = Vector2(tile_size/2.0 + 1,0.0)
 	
 	ray_up.target_position = Vector2(0.0,-tile_size/2.0)
 	ray_down.target_position = Vector2(0.0,tile_size/2.0)
@@ -52,6 +52,7 @@ func is_colliding(direction: Entity.Direction) -> Entity.ReasonBlocked:
 	if ray.is_colliding():
 		if ray.get_collider() is Box:
 			return Entity.ReasonBlocked.BOX
-		#return Entity.ReasonBlocked.WALL
+		if ray.get_collider() is TileMapLayer:
+			return Entity.ReasonBlocked.WALL
 	
 	return Entity.ReasonBlocked.NONE
