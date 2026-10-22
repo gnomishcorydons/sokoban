@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://c04hjg8b0o18x"]
 
-[ext_resource type="Script" uid="uid://wtrp5kdl3ghd" path="res://addons/context/context.gd" id="1_68t5b"]
+[ext_resource type="Script" uid="uid://bt8o02kcjp6ss" path="res://features/root_context/root_context.gd" id="1_fitu1"]
 [ext_resource type="PackedScene" uid="uid://d4k2jl6muoqvl" path="res://features/level_select_context/level_select_context.tscn" id="2_s10nb"]
+[ext_resource type="PackedScene" uid="uid://cutt8k71ums1g" path="res://features/level_context/level_context.tscn" id="3_fitu1"]
 
 [node name="RootContext" type="Node" unique_id=840183854]
-script = ExtResource("1_68t5b")
+script = ExtResource("1_fitu1")
 packed_scene_subcontexts = Dictionary[String, PackedScene]({
+"level": ExtResource("3_fitu1"),
 "level_select": ExtResource("2_s10nb")
 })
 starting_subcontext_key = "level_select"

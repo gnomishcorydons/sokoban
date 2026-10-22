@@ -1,9 +1,7 @@
+class_name LevelSelectContext
 extends Context
 
-var folders_to_load: Array[String] = [
-	"res://resources/level_packs/",
-	"user://level_packs/"
-]
+signal load_level(level_node: XMLNode)
 
 # Could just be arrays but maps are supposed to be dictionaries.
 var item_index_file_path_map: Dictionary[int, String]
@@ -12,6 +10,7 @@ var item_index_level_node_map: Dictionary[int, XMLNode]
 @onready var level_pack_list: ItemList = %LevelPackList
 @onready var level_list: ItemList = %LevelList
 @onready var reload_level_packs_button: Button = %ReloadLevelPacksButton
+@onready var play_button: Button = %PlayButton
 
 @onready var title_label: Label = %TitleLabel
 @onready var email_label: Label = %EmailLabel
@@ -27,12 +26,15 @@ func _ready() -> void:
 	level_pack_list.item_selected.connect(_on_level_pack_list_item_selected)
 	level_list.item_selected.connect(_on_level_list_item_selected)
 	reload_level_packs_button.pressed.connect(_on_reload_level_packs_button)
+	play_button.pressed.connect(_on_play_button_pressed)
 	
 	load_level_packs()
 
 func load_level_packs() -> void:
 	clear_level_pack_list()
 	
+	var level_pack_folder_locations_file: FileAccess = FileAccess.open("res://resources/level_pack_folder_locations.json", FileAccess.READ)
+	var folders_to_load: Array = JSON.parse_string(level_pack_folder_locations_file.get_as_text()) as Array
 	for folder in folders_to_load:
 		load_folder(folder)
 	
@@ -40,7 +42,10 @@ func load_level_packs() -> void:
 	_on_level_pack_list_item_selected(0)  # Select doesnt trigger the signal for some reason
 
 func load_folder(folder_path: String) -> void:
-	if not DirAccess.dir_exists_absolute(folder_path): return
+	if not DirAccess.dir_exists_absolute(folder_path):
+		PrintUtil.pr("Attempted to load " + folder_path + " but it could not be found.")
+		return
+	
 	var dir_access: DirAccess = DirAccess.open(folder_path)
 	for file_name in dir_access.get_files():
 		if not file_name.ends_with(".slc"): return
@@ -57,6 +62,10 @@ func clear_level_pack_list() -> void:
 func clear_level_list_items() -> void:
 	level_list.clear()
 	item_index_level_node_map.clear()
+
+func _on_play_button_pressed() -> void:
+	var level_node: XMLNode = item_index_level_node_map[level_list.get_selected_items()[0]]
+	load_level.emit(level_node)
 
 func _on_level_pack_list_item_selected(index: int) -> void:
 	var file_path: String = item_index_file_path_map[index]

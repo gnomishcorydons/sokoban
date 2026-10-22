@@ -1,3 +1,6 @@
+Parallax2D
+TileMapLayer
+Context
 VSeparator
 HBoxContainer
 ItemList
@@ -9,6 +12,4 @@ VBoxContainer
 Button
 HSeparator
 Control
-Context
 CollisionShape2D
-Sprite2D

@@ -1,9 +1,5 @@
 res://features/level_select_context/level_select_context.tscn
-res://resources/themes/default.tres
-res://addons/log/log.gd
-res://features/root_context/root_context.tscn
-res://features/level_select_context/level_select_context.gd
-res://addons/better_xml/better_xml_plugin.cfg
-res://addons/better_xml/plugin.cfg
-res://addons/better_xml/better_xml_plugin.gd
-res://addons/better_xml/xml_node.gd
+res://features/root_context/root_context.gd
+res://addons/print_util/print_util.gd
+res://features/level_context/entity/player/player.gd
+res://features/level_context/level_context.tscn

@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://cutt8k71ums1g"]
+
+[ext_resource type="Script" uid="uid://dj5dj6hvb7h28" path="res://features/level_context/level_context.gd" id="1_i1m60"]
+[ext_resource type="Texture2D" uid="uid://dw0upfto2gm45" path="res://assets/images/destination.png" id="2_sr0gj"]
+[ext_resource type="Texture2D" uid="uid://daqaie8u0jd0e" path="res://assets/images/ground.png" id="3_xml04"]
+[ext_resource type="Texture2D" uid="uid://dft4cwwol4rrc" path="res://assets/images/wall_side.png" id="4_j5adh"]
+[ext_resource type="Texture2D" uid="uid://ddjj14k6o1dtg" path="res://assets/images/wall_top.png" id="5_wvvtg"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5ui12"]
+texture = ExtResource("2_sr0gj")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hoq4e"]
+texture = ExtResource("3_xml04")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e7rcx"]
+texture = ExtResource("4_j5adh")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_37sck"]
+texture = ExtResource("5_wvvtg")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+
+[sub_resource type="TileSet" id="TileSet_30iro"]
+tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_5ui12")
+sources/2 = SubResource("TileSetAtlasSource_hoq4e")
+sources/3 = SubResource("TileSetAtlasSource_e7rcx")
+sources/4 = SubResource("TileSetAtlasSource_37sck")
+
+[node name="LevelContext" type="Node" unique_id=1077371803]
+script = ExtResource("1_i1m60")
+metadata/_custom_type_script = "uid://wtrp5kdl3ghd"
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=626186867]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=603586180]
+unique_name_in_owner = true
+tile_set = SubResource("TileSet_30iro")

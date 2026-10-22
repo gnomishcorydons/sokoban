@@ -18,15 +18,18 @@ config/icon="res://icon.svg"
 [autoload]
 
 Console="*uid://ouiu5xh1cs8n"
+PrintUtil="*uid://dnsv37bvo8xac"
 
 [display]
 
+window/size/viewport_width=1280
+window/size/viewport_height=720
 window/size/mode=2
 window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/better_xml/plugin.cfg", "res://addons/console/plugin.cfg", "res://addons/context/plugin.cfg", "res://addons/log/plugin.cfg", "res://addons/reload_current_scene/plugin.cfg", "res://addons/script-ide/plugin.cfg", "res://addons/state_machine/plugin.cfg")
+enabled=PackedStringArray("res://addons/better_xml/plugin.cfg", "res://addons/console/plugin.cfg", "res://addons/context/plugin.cfg", "res://addons/print_util/plugin.cfg", "res://addons/script-ide/plugin.cfg", "res://addons/state_machine/plugin.cfg")
 
 [file_customization]
 
