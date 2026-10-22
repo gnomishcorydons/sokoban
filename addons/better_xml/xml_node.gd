@@ -1,14 +1,23 @@
 class_name XMLNode
 extends RefCounted
+## Represents a node in xml.
 
+## The name of the tag of the node.
 var tag: String
+
+## The text/data contained between the start of the node and its closing tag.
 var text: String = ""
 
+## The attributes of a node with all data in Strings.
 var attributes: Dictionary[String, String]
 
+## The node that this node is a child of.
 var parent: XMLNode
+
+## The nodes this node is the parent of.
 var children: Array[XMLNode]
 
+## Creates a node from a file from the given path.
 static func from_file(file_path: String) -> XMLNode:
 	var parser = XMLParser.new()
 	parser.open(file_path)
@@ -25,8 +34,10 @@ static func from_file(file_path: String) -> XMLNode:
 				current_node.add_child(node)
 				current_node = node
 				
+				# Get tag
 				current_node.tag = parser.get_node_name()
 				
+				# Get attributes
 				for i in parser.get_attribute_count():
 					var attribute_name: String = parser.get_attribute_name(i)
 					var attribute_value: String = parser.get_attribute_value(i)
@@ -44,12 +55,15 @@ static func from_file(file_path: String) -> XMLNode:
 	
 	return root
 
+## Gets the first child with the specified tag.
 func get_child(_tag: String) -> XMLNode:
 	for child in children:
 		if child.tag == _tag:
 			return child
 	return null
 
-func add_child(new_child: XMLNode) -> void:
+## Adds a child to node's children list and sets its parent as self.
+func add_child(new_child: XMLNode) -> XMLNode:
 	new_child.parent = self
 	children.push_back(new_child)
+	return new_child

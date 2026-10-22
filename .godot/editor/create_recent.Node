@@ -1,10 +1,12 @@
-Button
-HSeparator
+HSplitContainer
+Label
+VSeparator
 MarginContainer
 PanelContainer
-Label
 VBoxContainer
 HBoxContainer
+Button
+HSeparator
 Control
 Context
 CollisionShape2D
