@@ -11,6 +11,7 @@ var item_index_level_node_map: Dictionary[int, XMLNode]
 @onready var level_list: ItemList = %LevelList
 @onready var reload_level_packs_button: Button = %ReloadLevelPacksButton
 @onready var play_button: Button = %PlayButton
+@onready var open_folder_button: Button = %OpenFolderButton
 
 @onready var title_label: Label = %TitleLabel
 @onready var email_label: Label = %EmailLabel
@@ -25,8 +26,10 @@ func _ready() -> void:
 	
 	level_pack_list.item_selected.connect(_on_level_pack_list_item_selected)
 	level_list.item_selected.connect(_on_level_list_item_selected)
-	reload_level_packs_button.pressed.connect(_on_reload_level_packs_button)
+	reload_level_packs_button.pressed.connect(_on_reload_level_packs_button_pressed)
+	
 	play_button.pressed.connect(_on_play_button_pressed)
+	open_folder_button.pressed.connect(_on_open_folder_button_pressed)
 	
 	load_level_packs()
 
@@ -107,5 +110,8 @@ func _on_level_list_item_selected(index: int) -> void:
 	level_id_label.text = id
 	level_size_label.text = str(size)
 
-func _on_reload_level_packs_button() -> void:
+func _on_open_folder_button_pressed() -> void:
+	OS.shell_open(ProjectSettings.globalize_path("user://"))
+
+func _on_reload_level_packs_button_pressed() -> void:
 	load_level_packs()

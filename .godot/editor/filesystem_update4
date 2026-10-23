@@ -1,3 +1,7 @@
 res://features/level_context/level_context.tscn
 res://features/level_context/level_context.gd
 res://addons/context/context.gd
+res://features/root_context/root_context.tscn
+res://features/root_context/root_context.gd
+res://features/level_select_context/level_select_context.tscn
+res://features/level_select_context/level_select_context.gd

@@ -1,9 +1,10 @@
 extends Context
 
 func _ready() -> void:
-	subcontext_changed.connect(_on_subcontext_changed)
 	super._ready()
+	subcontext_changed.connect(_on_subcontext_changed)
 	Console.add_command("load_level", _console_load_level, ["level_pack", "level_id"], 2)
+	Console.add_command("open_user_folder", _console_open_user_folder)
 
 func load_level(level_node: XMLNode) -> void:
 	change_subcontext("level")
@@ -17,6 +18,9 @@ func _on_subcontext_changed(new_subcontext: Context) -> void:
 
 func _on_load_level(level_node: XMLNode) -> void:
 	load_level(level_node)
+
+func _console_open_user_folder() -> void:
+	OS.shell_open(ProjectSettings.globalize_path("user://"))
 
 func _console_load_level(level_pack: String, level_id: String) -> void:
 	var level_pack_folder_locations_file: FileAccess = FileAccess.open("res://resources/level_pack_folder_locations.json", FileAccess.READ)

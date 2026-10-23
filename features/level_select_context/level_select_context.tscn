@@ -49,10 +49,20 @@ layout_mode = 2
 auto_width = true
 auto_height = true
 
-[node name="ReloadLevelPacksButton" type="Button" parent="Control/MarginContainer/HBoxContainer/LevelPackContainer/MarginContainer/VBoxContainer" unique_id=471334749]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/HBoxContainer/LevelPackContainer/MarginContainer/VBoxContainer" unique_id=218401396]
+layout_mode = 2
+
+[node name="ReloadLevelPacksButton" type="Button" parent="Control/MarginContainer/HBoxContainer/LevelPackContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=471334749]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Reload"
+
+[node name="OpenFolderButton" type="Button" parent="Control/MarginContainer/HBoxContainer/LevelPackContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=941089801]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Folder"
 
 [node name="LevelsContainer" type="PanelContainer" parent="Control/MarginContainer/HBoxContainer" unique_id=1631440597]
 layout_mode = 2

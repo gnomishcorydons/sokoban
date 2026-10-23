@@ -64,7 +64,21 @@ func load_level(level_node: XMLNode) -> void:
 			tile_map.set_cell(cell_position, WALL_TOP_SOURCE_ID, Vector2i.ZERO)
 	
 	# Camera
+	adjust_camera()
+
+func adjust_camera() -> void:
 	var used_rect: Rect2i = tile_map.get_used_rect()
-	used_rect.position *= Entity.tile_size
-	used_rect.size *= Entity.tile_size
+	used_rect.position *= tile_map.tile_set.tile_size
+	used_rect.size *= tile_map.tile_set.tile_size
+	# Position
 	@warning_ignore("integer_division") camera.position = used_rect.position + used_rect.size / 2
+	
+	# Zoom
+	
+	used_rect.size += tile_map.tile_set.tile_size * 2 # add padding so its not right up agaisnt the view borders
+	
+	var viewport_size: Vector2i = get_viewport().get_visible_rect().size
+	
+	var zoom_scale: Vector2 = Vector2(viewport_size) / Vector2(used_rect.size)
+	var zoom: float = min(zoom_scale.x, zoom_scale.y)
+	camera.zoom = Vector2(zoom, zoom)

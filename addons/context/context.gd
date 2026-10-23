@@ -21,7 +21,7 @@ func _ready() -> void:
 	if subcontext_container == null:
 		subcontext_container = self
 	if starting_subcontext_key != "":
-		change_subcontext(starting_subcontext_key)
+		change_subcontext.call_deferred(starting_subcontext_key)
 
 ## Changes the subcontext. Always use this and never set it directly. Leave new_subcontext_key empty or null if you wish to make subcontext null.
 func change_subcontext(new_subcontext_key: String) -> void:
@@ -32,7 +32,7 @@ func change_subcontext(new_subcontext_key: String) -> void:
 	
 	if new_subcontext_key != null and new_subcontext_key != "":
 		subcontext = packed_scene_subcontexts[new_subcontext_key].instantiate()
-		subcontext.change_parent_subcontext.connect(change_subcontext)
+		#subcontext.change_parent_subcontext.connect(change_subcontext)
 		
 		subcontext_container.add_child(subcontext)
 	
