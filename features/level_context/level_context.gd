@@ -1,16 +1,18 @@
 class_name LevelContext
 extends Context
 
-const DESTINATION_SOURCE_ID: int = 1
+const GOAL_SOURCE_ID: int = 1
 const WALL_SIDE_SOURCE_ID: int = 3
 const WALL_TOP_SOURCE_ID: int = 4
 
-var char_to_tile_map: Dictionary[String, String] = {
+var char_to_tile_map: Dictionary[String, String] = { # Should prob put this in a json
 	"#": "wall",
 	"$": "box",
-	".": "destination",
+	".": "goal",
 	"@": "player",
-	" ": "ground"
+	" ": "ground",
+	"*": "box on goal",
+	"+": "player on goal"
 }
 
 @onready var tile_map: TileMapLayer = %TileMapLayer
@@ -35,12 +37,24 @@ func load_level(level_node: XMLNode) -> void:
 					var box: Box = Box.PACKED_SCENE.instantiate()
 					@warning_ignore("integer_division") box.position = real_coords
 					entities_container.add_child(box)
-				"destination":
-					tile_map.set_cell(coords, DESTINATION_SOURCE_ID, Vector2i.ZERO)
+				"goal":
+					tile_map.set_cell(coords, GOAL_SOURCE_ID, Vector2i.ZERO)
 				"player":
 					var player: Player = Player.PACKED_SCENE.instantiate()
 					@warning_ignore("integer_division") player.position = real_coords
 					entities_container.add_child(player)
+				"player on goal":
+					var player: Player = Player.PACKED_SCENE.instantiate()
+					@warning_ignore("integer_division") player.position = real_coords
+					entities_container.add_child(player)
+					
+					tile_map.set_cell(coords, GOAL_SOURCE_ID, Vector2i.ZERO)
+				"box on goal":
+					tile_map.set_cell(coords, GOAL_SOURCE_ID, Vector2i.ZERO)
+					
+					var box: Box = Box.PACKED_SCENE.instantiate()
+					@warning_ignore("integer_division") box.position = real_coords
+					entities_container.add_child(box)
 	
 	# Fix walls
 	var wall_side_positions: Array[Vector2i] = tile_map.get_used_cells_by_id(WALL_SIDE_SOURCE_ID)
@@ -53,5 +67,4 @@ func load_level(level_node: XMLNode) -> void:
 	var used_rect: Rect2i = tile_map.get_used_rect()
 	used_rect.position *= Entity.tile_size
 	used_rect.size *= Entity.tile_size
-	PrintUtil.pr(used_rect)
 	@warning_ignore("integer_division") camera.position = used_rect.position + used_rect.size / 2

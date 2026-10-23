@@ -1,0 +1,12 @@
+TODO:
+	- Create transition between levels
+	- Create undo feature
+	- Create redo feature
+	- Implement mouse movement
+	- Make ui look pretty
+	- Create repos for created plugins
+	- Create win state
+	- Add animations to player
+	- Create ground paralax
+MAYBE:
+	- Level editor

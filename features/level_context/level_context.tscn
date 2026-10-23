@@ -50,6 +50,7 @@ tile_set = SubResource("TileSet_30iro")
 
 [node name="Camera2D" type="Camera2D" parent="Node2D" unique_id=272606939]
 unique_name_in_owner = true
+zoom = Vector2(0.5, 0.5)
 limit_enabled = false
 
 [node name="EntitiesContainer" type="Node2D" parent="Node2D" unique_id=989511386]
