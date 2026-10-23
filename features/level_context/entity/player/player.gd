@@ -3,6 +3,8 @@ extends Entity
 
 const PACKED_SCENE: PackedScene = preload("uid://dcq47felmt2ny")
 
+var frozen: bool = false
+
 func _unhandled_input(_event: InputEvent) -> void:
 	if not ready_to_move(): return
 
@@ -10,7 +12,7 @@ func _physics_process(_delta: float) -> void:
 	movement()
 
 func movement() -> void:
-	if not ready_to_move(): return
+	if not can_move(): return
 	
 	var should_move: bool = true # If an action is not triggered, dont move.
 	var movement_direction: Direction
@@ -28,6 +30,11 @@ func movement() -> void:
 	
 	if should_move == true:
 		move(movement_direction)
+
+func can_move() -> bool:
+	if frozen: return false
+	if not ready_to_move(): return false
+	return true
 
 func move(direction: Direction, _ignore_collision: bool = false) -> ReasonBlocked:
 	var reason_blocked: ReasonBlocked = super.move(direction)

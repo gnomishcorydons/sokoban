@@ -1,3 +1,4 @@
+res://features/level_context/level_states/
 /home/gabagoo/dev/godot/sokoban/
 res://features/level_context/
 /home/gabagoo/dev/godot/sokoban/resources/
@@ -5,7 +6,5 @@ res://features/level_context/
 res://resources/themes/
 res://resources/font/
 res://features/level_select_context/
-res://features/entity/box/
-res://features/entity/
 res://features/root_context/
 /home/gabagoo/dev/godot/sokoban/addons/context/

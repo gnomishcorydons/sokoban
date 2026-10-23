@@ -5,3 +5,9 @@ res://features/root_context/root_context.tscn
 res://features/root_context/root_context.gd
 res://features/level_select_context/level_select_context.tscn
 res://features/level_select_context/level_select_context.gd
+res://resources/themes/default.tres
+res://features/level_context/level_states/active.gd
+res://features/level_context/level_states/win.gd
+res://features/level_context/entity/player/player.gd
+res://features/level_context/entity/entity.gd
+res://addons/state_machine/state_machine.gd

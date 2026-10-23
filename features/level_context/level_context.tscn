@@ -2,8 +2,11 @@
 
 [ext_resource type="Script" uid="uid://dj5dj6hvb7h28" path="res://features/level_context/level_context.gd" id="1_i1m60"]
 [ext_resource type="Texture2D" uid="uid://dw0upfto2gm45" path="res://assets/images/destination.png" id="2_sr0gj"]
+[ext_resource type="Script" uid="uid://cxx20w8uveo1a" path="res://addons/state_machine/state_machine.gd" id="2_xml04"]
+[ext_resource type="Script" uid="uid://fejc0cd7gfua" path="res://features/level_context/level_states/active.gd" id="3_wvvtg"]
 [ext_resource type="Texture2D" uid="uid://daqaie8u0jd0e" path="res://assets/images/ground.png" id="3_xml04"]
 [ext_resource type="Texture2D" uid="uid://dft4cwwol4rrc" path="res://assets/images/wall_side.png" id="4_j5adh"]
+[ext_resource type="Script" uid="uid://cdo1l6o8oa7pj" path="res://features/level_context/level_states/win.gd" id="4_wvvtg"]
 [ext_resource type="Texture2D" uid="uid://ddjj14k6o1dtg" path="res://assets/images/wall_top.png" id="5_wvvtg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5ui12"]
@@ -40,18 +43,99 @@ sources/4 = SubResource("TileSetAtlasSource_37sck")
 script = ExtResource("1_i1m60")
 metadata/_custom_type_script = "uid://wtrp5kdl3ghd"
 
-[node name="Node2D" type="Node2D" parent="." unique_id=253516346]
+[node name="LevelStateMachine" type="Node" parent="." unique_id=1415995243 node_paths=PackedStringArray("starting_state")]
+script = ExtResource("2_xml04")
+starting_state = NodePath("Active")
+metadata/_custom_type_script = "uid://cxx20w8uveo1a"
 
-[node name="Parallax2D" type="Parallax2D" parent="Node2D" unique_id=626186867]
+[node name="Active" type="Node" parent="LevelStateMachine" unique_id=636545179 node_paths=PackedStringArray("level_context", "win_state")]
+script = ExtResource("3_wvvtg")
+level_context = NodePath("../..")
+win_state = NodePath("../Win")
+metadata/_custom_type_script = "uid://b6y7736x3sf6i"
 
-[node name="TileMapLayer" type="TileMapLayer" parent="Node2D" unique_id=603586180]
+[node name="Win" type="Node" parent="LevelStateMachine" unique_id=907727755 node_paths=PackedStringArray("level_context")]
+script = ExtResource("4_wvvtg")
+level_context = NodePath("../..")
+metadata/_custom_type_script = "uid://b6y7736x3sf6i"
+
+[node name="WorldLayer" type="CanvasLayer" parent="." unique_id=785388387]
+follow_viewport_enabled = true
+
+[node name="Node2D" type="Node2D" parent="WorldLayer" unique_id=253516346]
+
+[node name="Parallax2D" type="Parallax2D" parent="WorldLayer/Node2D" unique_id=626186867]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="WorldLayer/Node2D" unique_id=603586180]
 unique_name_in_owner = true
 tile_set = SubResource("TileSet_30iro")
 
-[node name="Camera2D" type="Camera2D" parent="Node2D" unique_id=272606939]
+[node name="Camera2D" type="Camera2D" parent="WorldLayer/Node2D" unique_id=272606939]
 unique_name_in_owner = true
-zoom = Vector2(0.5, 0.5)
 limit_enabled = false
 
-[node name="EntitiesContainer" type="Node2D" parent="Node2D" unique_id=989511386]
+[node name="EntitiesContainer" type="Node2D" parent="WorldLayer/Node2D" unique_id=989511386]
 unique_name_in_owner = true
+
+[node name="UiLayer" type="CanvasLayer" parent="." unique_id=386969661]
+
+[node name="Control" type="Control" parent="UiLayer" unique_id=1286011618]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="UiLayer/Control" unique_id=890891973]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WinMenu" type="PanelContainer" parent="UiLayer/Control/CenterContainer" unique_id=1330566978]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UiLayer/Control/CenterContainer/WinMenu" unique_id=457059594]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UiLayer/Control/CenterContainer/WinMenu/MarginContainer" unique_id=632234997]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UiLayer/Control/CenterContainer/WinMenu/MarginContainer/VBoxContainer" unique_id=322003293]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "YOU WIN!"
+
+[node name="TimeLabel" type="Label" parent="UiLayer/Control/CenterContainer/WinMenu/MarginContainer/VBoxContainer" unique_id=970677525]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Time"
+
+[node name="MovesLabel" type="Label" parent="UiLayer/Control/CenterContainer/WinMenu/MarginContainer/VBoxContainer" unique_id=792815881]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Moves"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UiLayer/Control/CenterContainer/WinMenu/MarginContainer/VBoxContainer" unique_id=1158259124]
+layout_mode = 2
+
+[node name="RetryButton" type="Button" parent="UiLayer/Control/CenterContainer/WinMenu/MarginContainer/VBoxContainer/HBoxContainer" unique_id=125327109]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Retry"
+
+[node name="MenuButton" type="Button" parent="UiLayer/Control/CenterContainer/WinMenu/MarginContainer/VBoxContainer/HBoxContainer" unique_id=658460074]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Menu"
+
+[node name="NextButton" type="Button" parent="UiLayer/Control/CenterContainer/WinMenu/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1093314193]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Next"

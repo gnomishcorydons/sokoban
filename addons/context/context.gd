@@ -2,6 +2,7 @@ class_name Context
 extends Node
 ## A context is kinda like a room that can have a child room but only 1 at a time.
 ## Kinda hard to explain but once you use them you get it. 
+## Kinda like a state_machine and a room system had an incest baby.
 
 ## Fired when subcontext is changed
 signal subcontext_changed(new_subcontext: Context)

@@ -1,6 +1,8 @@
 class_name Entity
 extends CharacterBody2D
 
+signal moved
+
 enum ReasonBlocked {
 	NONE, BOX, WALL, NOT_READY, INVALID_DIRECTION
 }
@@ -53,6 +55,7 @@ func move(direction: Direction, ignore_collision: bool = false) -> ReasonBlocked
 		func() -> void: 
 			sprite_movement_tween = null
 	)
+	moved.emit()
 	
 	return ReasonBlocked.NONE
 
